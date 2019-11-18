@@ -1,5 +1,6 @@
 import React from "react";
 
+import Footer from "../Footer";
 import SearchMovies from "../SearchMovies";
 
 const App = () => {
@@ -7,6 +8,7 @@ const App = () => {
     <div className="ui container">
       <h1>Movie Search</h1>
       <SearchMovies />
+      <Footer />
     </div>
   );
 };

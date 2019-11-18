@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { config } from "../../temp_config";
 
+import MovieList from "../MovieList";
 import SearchBar from "../SearchBar";
 
 class SearchMovies extends Component {
@@ -26,9 +27,10 @@ class SearchMovies extends Component {
 
   render() {
     return (
-      <div>
+      <section>
         <SearchBar onSearchSubmit={this.onSearchSubmit} />
-      </div>
+        <MovieList movies={this.state.movies} />
+      </section>
     );
   }
 }

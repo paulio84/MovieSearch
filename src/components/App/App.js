@@ -5,8 +5,12 @@ import SearchMovies from "../SearchMovies";
 
 const App = () => {
   return (
-    <div className="ui container">
-      <h1>Movie Search</h1>
+    <div className="container">
+      <nav>
+        <div>
+          <h1>Movie Search</h1>
+        </div>
+      </nav>
       <SearchMovies />
       <Footer />
     </div>

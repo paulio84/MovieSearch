@@ -13,7 +13,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form className="ui form" onSubmit={this.onFormSubmit}>
+      <form onSubmit={this.onFormSubmit}>
         <input
           type="text"
           value={this.state.term}

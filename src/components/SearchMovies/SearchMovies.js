@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import axios from "axios";
 import { config } from "../../temp_config";
 
+import Loading from "../Loading";
 import MovieList from "../MovieList";
 import SearchBar from "../SearchBar";
 
 class SearchMovies extends Component {
-  state = { movies: [] };
+  state = { movies: [], isLoading: false };
 
   onSearchSubmit = async (term) => {
+    this.setState({ isLoading: true });
     const response = await axios.get(
       "https://api.themoviedb.org/3/search/movie",
       {
@@ -22,14 +24,18 @@ class SearchMovies extends Component {
       }
     );
 
-    this.setState({ movies: response.data.results });
+    this.setState({ movies: response.data.results, isLoading: false });
   };
 
   render() {
     return (
       <section>
         <SearchBar onSearchSubmit={this.onSearchSubmit} />
-        <MovieList movies={this.state.movies} />
+        {this.state.isLoading ? (
+          <Loading />
+        ) : (
+          <MovieList movies={this.state.movies} />
+        )}
       </section>
     );
   }

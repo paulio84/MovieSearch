@@ -13,13 +13,14 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit}>
+      <form className="ui form" onSubmit={this.onFormSubmit}>
         <input
           type="text"
           value={this.state.term}
           onChange={(event) => {
             this.setState({ term: event.target.value });
           }}
+          placeholder="Enter a movie title ..."
         />
       </form>
     );

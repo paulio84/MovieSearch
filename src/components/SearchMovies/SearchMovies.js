@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { config } from "../../temp_config";
+import { config, static_data } from "../../temp_config";
 
 import Loading from "../Loading";
 import MovieList from "../MovieList";
 import SearchBar from "../SearchBar";
 
 class SearchMovies extends Component {
-  state = { movies: [], isLoading: false };
+  state = { movies: static_data, isLoading: false };
 
   onSearchSubmit = async (term) => {
     this.setState({ isLoading: true });
@@ -29,14 +29,14 @@ class SearchMovies extends Component {
 
   render() {
     return (
-      <section>
+      <main>
         <SearchBar onSearchSubmit={this.onSearchSubmit} />
         {this.state.isLoading ? (
           <Loading />
         ) : (
           <MovieList movies={this.state.movies} />
         )}
-      </section>
+      </main>
     );
   }
 }

@@ -17,23 +17,18 @@ body {
   padding: 0;
 }
 
-h1 {
+.navBar {
   color: steelblue;
-  margin: 0;
 }
 
 .container {
   margin: 0 auto;
-  max-width: 960px;
-  padding: 16px;
+  max-width: 768px;
+  padding: 0 4px;
 }
 
-section {
-  padding: 16px 0;
-}
-
-.inner-section {
-  padding-bottom: 0;
+.searchBar {
+  margin-bottom: 1.34em;
 }
 
 input[type="text"] {
@@ -51,6 +46,7 @@ input[type="text"]:focus {
 }
 
 .footer {
+  margin-top: 1.34em;
   text-align: center;
 }
 
@@ -70,4 +66,10 @@ input[type="text"]:focus {
 
 ::selection {
   background-color: orange;
+}
+
+@media (min-width: 776px) {
+  .container {
+    padding: 0;
+  }
 }

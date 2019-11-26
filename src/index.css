@@ -29,19 +29,34 @@ body {
 
 .searchBar {
   margin-bottom: 1.34em;
-}
-
-input[type="text"] {
-  border: 1px solid lightgrey;
-  padding: 8px;
+  position: relative;
   width: 100%;
 }
 
-input[type="text"]::placeholder {
+.searchBar > span {
+  align-items: center;
+  color: steelblue;
+  display: inline-flex;
+  font-size: 20px;
+  height: 40px;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  width: 40px;
+}
+
+.searchBar > input[type="text"] {
+  border: 2px solid lightgrey;
+  padding: 9px;
+  padding-right: 40px;
+  width: 100%;
+}
+
+.searchBar > input[type="text"]::placeholder {
   color: lightgrey;
 }
 
-input[type="text"]:focus {
+.searchBar > input[type="text"]:focus {
   outline-color: steelblue;
 }
 

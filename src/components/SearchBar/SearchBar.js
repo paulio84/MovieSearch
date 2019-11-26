@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 
 class SearchBar extends Component {
@@ -13,15 +15,20 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form className="searchBar" onSubmit={this.onFormSubmit}>
-        <input
-          type="text"
-          value={this.state.term}
-          onChange={(event) => {
-            this.setState({ term: event.target.value });
-          }}
-          placeholder="Enter a movie title"
-        />
+      <form onSubmit={this.onFormSubmit}>
+        <div className="searchBar">
+          <input
+            type="text"
+            value={this.state.term}
+            onChange={(event) => {
+              this.setState({ term: event.target.value });
+            }}
+            placeholder="Enter a movie title"
+          />
+          <span>
+            <FontAwesomeIcon icon={faSearch} />
+          </span>
+        </div>
       </form>
     );
   }

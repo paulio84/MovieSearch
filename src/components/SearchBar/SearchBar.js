@@ -3,14 +3,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 
+import Notification from "../Notification";
+
 class SearchBar extends Component {
   state = { term: "" };
+
+  onRemoveNotification = () => {
+    this.setState({ emptySearchTerm: false });
+  };
 
   onFormSubmit = (event) => {
     event.preventDefault();
 
-    const { onSearchSubmit } = this.props;
-    onSearchSubmit(this.state.term);
+    if (this.state.term === "") this.setState({ emptySearchTerm: true });
+    else {
+      const { onSearchSubmit } = this.props;
+      onSearchSubmit(this.state.term);
+    }
   };
 
   render() {
@@ -21,13 +30,19 @@ class SearchBar extends Component {
             type="text"
             value={this.state.term}
             onChange={(event) => {
-              this.setState({ term: event.target.value });
+              this.setState({
+                term: event.target.value,
+                emptySearchTerm: false
+              });
             }}
             placeholder="Enter a movie title"
           />
           <span>
             <FontAwesomeIcon icon={faSearch} />
           </span>
+          {this.state.emptySearchTerm && (
+            <Notification removeNotification={this.onRemoveNotification} />
+          )}
         </div>
       </form>
     );

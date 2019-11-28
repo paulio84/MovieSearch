@@ -17,6 +17,12 @@ body {
   padding: 0;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 .navBar {
   color: steelblue;
 }
@@ -94,6 +100,23 @@ body {
   height: 36px;
   justify-content: center;
   width: 36px;
+}
+
+.movie-card {
+  display: flex;
+}
+
+.movie-card:not(:first-child) {
+  margin-top: 4px;
+}
+
+.movie-card__content {
+  flex-grow: 1;
+  margin-left: 4px;
+}
+
+.movie-card__content > p:first-child {
+  font-weight: 700;
 }
 
 .footer {

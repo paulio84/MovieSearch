@@ -6,7 +6,16 @@ const MovieList = ({ movies }) =>
     <section>
       <ul>
         {movies.map((movie) => (
-          <li key={movie.id}>{movie.title}</li>
+          <li className="movie-card" key={movie.id}>
+            <img
+              src={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}
+              alt={movie.title}
+            />
+            <div className="movie-card__content">
+              <p>{movie.title}</p>
+              {/* <p>{movie.overview}</p> */}
+            </div>
+          </li>
         ))}
       </ul>
     </section>

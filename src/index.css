@@ -30,7 +30,7 @@ ul {
 .container {
   margin: 0 auto;
   max-width: 768px;
-  padding: 0 4px;
+  padding: 0 8px;
 }
 
 .searchBar {
@@ -102,21 +102,40 @@ ul {
   width: 36px;
 }
 
+.no-photo {
+  border: 1px solid gray;
+}
+
 .movie-card {
   display: flex;
 }
 
 .movie-card:not(:first-child) {
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 .movie-card__content {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
   margin-left: 4px;
 }
 
-.movie-card__content > p:first-child {
+.movie-card__title {
+  flex-grow: 1;
+}
+
+.movie-card__infoBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fw-bold {
   font-weight: 700;
+}
+
+.fg-gray {
+  color: gray;
 }
 
 .footer {

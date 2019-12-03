@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { config } from "../../temp_config";
 
 import Loading from "../Loading";
 import MovieList from "../MovieList";
@@ -15,7 +14,7 @@ class SearchMovies extends Component {
       "https://api.themoviedb.org/3/search/movie",
       {
         params: {
-          api_key: config.API_KEY,
+          api_key: process.env.REACT_APP_API_KEY,
           language: "en-US",
           query: term,
           page: 1,

@@ -22,8 +22,6 @@ class SearchMovies extends Component {
         }
       }
     );
-    console.log(response.data.results);
-
     this.setState({ movies: response.data.results, isLoading: false });
   };
 

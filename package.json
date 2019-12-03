@@ -1,7 +1,9 @@
 {
+  "homepage": "https://moviesearch.paulio.now.sh",
   "name": "movie-search",
   "version": "0.1.0",
   "private": true,
+  "repository": "https://github.com/paulio84/MovieSearch",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",

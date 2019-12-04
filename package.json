@@ -1,5 +1,5 @@
 {
-  "homepage": "https://moviesearch.paulio.now.sh",
+  "homepage": "https://paulio-moviesearch.herokuapp.com/",
   "name": "movie-search",
   "version": "0.1.0",
   "private": true,

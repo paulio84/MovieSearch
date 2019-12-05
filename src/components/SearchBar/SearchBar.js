@@ -41,7 +41,10 @@ class SearchBar extends Component {
             <FontAwesomeIcon icon={faSearch} />
           </span>
           {this.state.emptySearchTerm && (
-            <Notification removeNotification={this.onRemoveNotification} />
+            <Notification
+              message="The search term is required."
+              removeNotification={this.onRemoveNotification}
+            />
           )}
         </div>
       </form>

@@ -18,7 +18,7 @@ const Notification = ({ message, removeNotification }) => (
 );
 Notification.propTypes = {
   removeNotification: PropTypes.func.isRequired,
-  message: PropTypes.string
+  message: PropTypes.string.isRequired
 };
 
 export default Notification;

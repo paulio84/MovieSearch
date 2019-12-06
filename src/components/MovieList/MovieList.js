@@ -50,10 +50,10 @@ const MovieList = ({ movies }) =>
 MovieList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
-      title: PropTypes.string,
-      release_date: PropTypes.string,
-      poster_path: PropTypes.string
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      release_date: PropTypes.string.isRequired,
+      poster_path: PropTypes.string.isRequired
     })
   ).isRequired
 };

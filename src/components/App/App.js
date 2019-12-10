@@ -39,7 +39,7 @@ class App extends Component {
       <div className="container">
         <header>
           <nav className="navBar">
-            <h1>Movie Search</h1>
+            <h1>MovieSearch</h1>
           </nav>
         </header>
         <SearchMovies

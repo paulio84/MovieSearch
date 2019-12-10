@@ -5,15 +5,19 @@ import dayjs from "dayjs";
 import LikeButton from "../LikeButton";
 
 class MovieList extends Component {
-  state = { likedMovies: [] };
-
   render() {
-    const { movies } = this.props;
+    const {
+      movies,
+      favouriteMovies,
+      onAddToFavouriteMovies,
+      onRemoveFromFavouriteMovies
+    } = this.props;
+
     return movies.length > 0 ? (
       <section>
         <ul>
           {movies.map((movie) => {
-            const isMovieLiked = this.state.likedMovies.some(
+            const isMovieLiked = favouriteMovies.some(
               (likedMovie) => likedMovie.id === movie.id
             );
 
@@ -52,15 +56,9 @@ class MovieList extends Component {
                       isLiked={isMovieLiked}
                       handleLike={(isLiked) => {
                         if (isLiked) {
-                          this.setState({
-                            likedMovies: [...this.state.likedMovies, movie]
-                          });
+                          onAddToFavouriteMovies(movie);
                         } else {
-                          this.setState({
-                            likedMovies: this.state.likedMovies.filter(
-                              (likedMovie) => likedMovie.id !== movie.id
-                            )
-                          });
+                          onRemoveFromFavouriteMovies(movie);
                         }
                       }}
                     />
@@ -82,7 +80,7 @@ MovieList.propTypes = {
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       release_date: PropTypes.string.isRequired,
-      poster_path: PropTypes.string.isRequired
+      poster_path: PropTypes.string
     })
   ).isRequired
 };

@@ -6,7 +6,17 @@ import MovieList from "../MovieList";
 import SearchBar from "../SearchBar";
 
 class SearchMovies extends Component {
-  state = { movies: [], isLoading: false };
+  state = {
+    movies: [
+      {
+        poster_path: "/cezWGskPY5x7GaglTTRN4Fugfb8.jpg",
+        id: 24428,
+        title: "The Avengers",
+        release_date: "2012-04-25"
+      }
+    ],
+    isLoading: false
+  };
 
   onSearchSubmit = async (term) => {
     this.setState({ isLoading: true });
@@ -26,13 +36,24 @@ class SearchMovies extends Component {
   };
 
   render() {
+    const {
+      favouriteMovies,
+      onAddToFavouriteMovies,
+      onRemoveFromFavouriteMovies
+    } = this.props;
+
     return (
       <main>
         <SearchBar onSearchSubmit={this.onSearchSubmit} />
         {this.state.isLoading ? (
           <Loading />
         ) : (
-          <MovieList movies={this.state.movies} />
+          <MovieList
+            movies={this.state.movies}
+            favouriteMovies={favouriteMovies}
+            onAddToFavouriteMovies={onAddToFavouriteMovies}
+            onRemoveFromFavouriteMovies={onRemoveFromFavouriteMovies}
+          />
         )}
       </main>
     );

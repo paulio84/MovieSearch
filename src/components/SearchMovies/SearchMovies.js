@@ -6,17 +6,7 @@ import MovieList from "../MovieList";
 import SearchBar from "../SearchBar";
 
 class SearchMovies extends Component {
-  state = {
-    movies: [
-      {
-        poster_path: "/cezWGskPY5x7GaglTTRN4Fugfb8.jpg",
-        id: 24428,
-        title: "The Avengers",
-        release_date: "2012-04-25"
-      }
-    ],
-    isLoading: false
-  };
+  state = { movies: [], isLoading: false };
 
   onSearchSubmit = async (term) => {
     this.setState({ isLoading: true });

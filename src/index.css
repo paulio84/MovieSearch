@@ -42,6 +42,7 @@ ul {
 .searchBar > span {
   align-items: center;
   color: steelblue;
+  cursor: pointer;
   display: inline-flex;
   font-size: 20px;
   height: 40px;

@@ -37,7 +37,7 @@ class SearchBar extends Component {
             }}
             placeholder="Enter a movie title"
           />
-          <span>
+          <span onClick={this.onFormSubmit}>
             <FontAwesomeIcon icon={faSearch} />
           </span>
           {this.state.emptySearchTerm && (

@@ -1,56 +1,52 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 
 import Notification from "../Notification";
 
-class SearchBar extends Component {
-  state = { term: "" };
+const SearchBar = ({ onSearchSubmit }) => {
+  const [term, setTerm] = useState("");
+  const [emptySearchTerm, setEmptySearchTerm] = useState(false);
 
-  onRemoveNotification = () => {
-    this.setState({ emptySearchTerm: false });
+  const onRemoveNotification = () => {
+    setEmptySearchTerm(false);
   };
 
-  onFormSubmit = (event) => {
+  const onFormSubmit = (event) => {
     event.preventDefault();
 
-    if (this.state.term === "") this.setState({ emptySearchTerm: true });
+    if (term === "") setEmptySearchTerm(true);
     else {
-      const { onSearchSubmit } = this.props;
-      onSearchSubmit(this.state.term);
+      onSearchSubmit(term);
     }
   };
 
-  render() {
-    return (
-      <form onSubmit={this.onFormSubmit}>
-        <div className="searchBar">
-          <input
-            type="text"
-            value={this.state.term}
-            onChange={(event) => {
-              this.setState({
-                term: event.target.value,
-                emptySearchTerm: false
-              });
-            }}
-            placeholder="Enter a movie title"
+  return (
+    <form onSubmit={onFormSubmit}>
+      <div className="searchBar">
+        <input
+          type="text"
+          value={term}
+          onChange={(event) => {
+            setTerm(event.target.value);
+            setEmptySearchTerm(false);
+          }}
+          placeholder="Enter a movie title"
+        />
+        <span onClick={onFormSubmit}>
+          <FontAwesomeIcon icon={faSearch} />
+        </span>
+        {emptySearchTerm && (
+          <Notification
+            message="The search term is required."
+            removeNotification={onRemoveNotification}
           />
-          <span onClick={this.onFormSubmit}>
-            <FontAwesomeIcon icon={faSearch} />
-          </span>
-          {this.state.emptySearchTerm && (
-            <Notification
-              message="The search term is required."
-              removeNotification={this.onRemoveNotification}
-            />
-          )}
-        </div>
-      </form>
-    );
-  }
-}
+        )}
+      </div>
+    </form>
+  );
+};
 SearchBar.propTypes = {
   onSearchSubmit: PropTypes.func.isRequired
 };

@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 
 import Notification from "../Notification";
 
+import styles from "./SearchBar.module.css";
+
 const SearchBar = ({ onSearchSubmit }) => {
   const [term, setTerm] = useState("");
   const [emptySearchTerm, setEmptySearchTerm] = useState(false);
@@ -24,8 +26,9 @@ const SearchBar = ({ onSearchSubmit }) => {
 
   return (
     <form onSubmit={onFormSubmit}>
-      <div className="searchBar">
+      <div className={`${styles.searchBar} input-field`}>
         <input
+          id="searchbar"
           type="text"
           value={term}
           onChange={(event) => {
@@ -33,8 +36,9 @@ const SearchBar = ({ onSearchSubmit }) => {
             setEmptySearchTerm(false);
           }}
           placeholder="Enter a movie title"
+          autoComplete="off"
         />
-        <span onClick={onFormSubmit}>
+        <span onClick={onFormSubmit} className="light-blue-text text-darken-4">
           <FontAwesomeIcon icon={faSearch} />
         </span>
         {emptySearchTerm && (

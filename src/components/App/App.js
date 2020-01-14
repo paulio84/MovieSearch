@@ -26,19 +26,31 @@ const App = () => {
   };
 
   return (
-    <div className="container">
-      <header>
-        <nav className="navBar">
-          <h1>MovieSearch</h1>
-        </nav>
-      </header>
-      <SearchMovies
-        favouriteMovies={favouriteMovies}
-        onAddToFavouriteMovies={onAddToFavouriteMovies}
-        onRemoveFromFavouriteMovies={onRemoveFromFavouriteMovies}
-      />
-      <Footer />
-    </div>
+    <>
+      <nav className="nav-wrapper light-blue darken-4">
+        <div className="container">
+          <a href="/" className="brand-logo">
+            MovieSearch
+          </a>
+          <ul id="nav-mobile" className="right hide-on-small-and-down">
+            <li>
+              <a href="/search">Search</a>
+            </li>
+            <li>
+              <a href="/favourites">My Favourites</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div className="container">
+        <SearchMovies
+          favouriteMovies={favouriteMovies}
+          onAddToFavouriteMovies={onAddToFavouriteMovies}
+          onRemoveFromFavouriteMovies={onRemoveFromFavouriteMovies}
+        />
+        <Footer />
+      </div>
+    </>
   );
 };
 

@@ -1,0 +1,32 @@
+.notification {
+  background-color: lightpink;
+  border: 2px solid firebrick;
+  border-radius: 4px;
+  color: darkred;
+}
+
+.notification > span {
+  color: firebrick;
+  position: absolute;
+  transform: translate(13px, -13px);
+}
+
+.notification__text {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.notification__text > p {
+  margin: 0;
+  padding: 9px;
+}
+
+.notification__button {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  height: 36px;
+  justify-content: center;
+  width: 36px;
+}

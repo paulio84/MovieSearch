@@ -1,18 +1,19 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretUp, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+
 import PropTypes from "prop-types";
+import styles from "./Notification.module.css";
 
 const Notification = ({ message, removeNotification }) => (
-  <div className="notification">
-    <span>
-      <FontAwesomeIcon icon={faCaretUp} />
-    </span>
-    <div className="notification__text">
-      <p>{message}</p>
-      <span className="notification__button">
-        <FontAwesomeIcon onClick={removeNotification} icon={faTimes} />
-      </span>
+  <div className="row">
+    <div className={`${styles.notification} col s8 offset-s2`}>
+      <div className={`${styles.notification__text}`}>
+        <p>{message}</p>
+        <span className={`${styles.notification__button}`}>
+          <FontAwesomeIcon onClick={removeNotification} icon={faTimes} />
+        </span>
+      </div>
     </div>
   </div>
 );

@@ -1,0 +1,9 @@
+.footer {
+  margin-top: 1.34em;
+  text-align: center;
+}
+
+.footer__attribution {
+  max-width: 130px;
+  width: 20%;
+}

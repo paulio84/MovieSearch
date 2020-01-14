@@ -1,0 +1,32 @@
+.searchBar {
+  margin-bottom: 1.34em;
+  position: relative;
+  width: 100%;
+}
+
+.searchBar > span {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 20px;
+  height: 40px;
+  justify-content: center;
+  position: absolute;
+  right: 11px;
+  width: 40px;
+}
+
+.searchBar > input[type="text"] {
+  box-sizing: border-box;
+  padding: 9px;
+  padding-right: 40px;
+  width: 100%;
+}
+
+.searchBar > input[type="text"]::placeholder {
+  color: lightgrey;
+}
+
+.searchBar > input[type="text"]:focus {
+  border-bottom: 1px solid #01579b !important;
+}

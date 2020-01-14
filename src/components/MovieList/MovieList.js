@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import dayjs from "dayjs";
 
 import LikeButton from "../LikeButton";
+import MovieCard from "./MovieCard";
 
 const MovieList = ({
   movies,

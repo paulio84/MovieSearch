@@ -1,23 +1,57 @@
 import React from "react";
+import dayjs from "dayjs";
 
-const MovieCard = () => {
+import LikeButton from "../LikeButton";
+
+const MovieCard = ({
+  movie,
+  index,
+  onAddToFavouriteMovies,
+  onRemoveFromFavouriteMovies,
+  isLiked
+}) => {
   return (
-    <div className="card horizontal">
+    <li
+      className={`col s12 m5 card horizontal valign-wrapper ${
+        index % 2 !== 0 ? "offset-m2" : ""
+      }`}
+    >
       <div className="card-image">
-        <img src="https://lorempixel.com/100/190/nature/6" alt="" />
+        {movie.poster_path ? (
+          <img
+            className="responsive-img"
+            src={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}
+            alt={movie.title}
+          />
+        ) : (
+          <img
+            className="responsive-img"
+            src={`/assets/noPhotoFound.png`}
+            alt={movie.title}
+          />
+        )}
       </div>
       <div className="card-stacked">
         <div className="card-content">
-          <p>
-            I am a very simple card. I am good at containing small bits of
-            information.
-          </p>
+          <span className="card-title">{movie.title}</span>
+          {movie.release_date && (
+            <p>{dayjs(movie.release_date).format("MMMM D, YYYY")}</p>
+          )}
         </div>
-        <div className="card-action">
-          <a href="#!">This is a link</a>
+        <div className="card-action right-align">
+          <LikeButton
+            isLiked={isLiked}
+            handleLike={(isLiked) => {
+              if (isLiked) {
+                onAddToFavouriteMovies(movie);
+              } else {
+                onRemoveFromFavouriteMovies(movie);
+              }
+            }}
+          />
         </div>
       </div>
-    </div>
+    </li>
   );
 };
 

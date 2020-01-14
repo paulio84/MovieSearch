@@ -1,12 +1,14 @@
 import React from "react";
 
+import styles from "./Loading.module.css";
+
 const Loading = () => {
   return (
     <section>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xlink="http://www.w3.org/1999/xlink"
-        className="loading"
+        className={`${styles.loading}`}
         viewBox="0 0 100 100"
         preserveAspectRatio="xMidYMid"
       >

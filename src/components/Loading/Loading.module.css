@@ -1,0 +1,8 @@
+.loading {
+  margin: auto;
+  background: none;
+  display: block;
+  shape-rendering: auto;
+  width: 130px;
+  height: 60px;
+}

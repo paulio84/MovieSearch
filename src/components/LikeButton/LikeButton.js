@@ -7,6 +7,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
 
+import styles from "./LikeButton.module.css";
+
 class LikeButton extends Component {
   state = { isAnimating: false, isLiked: false };
 
@@ -37,21 +39,21 @@ class LikeButton extends Component {
     const { isAnimating, isLiked } = this.state;
 
     return (
-      <div className="likeButton" onClick={this.handleClick}>
-        <span className={`${isLiked ? "red" : ""}`}>
+      <div className={`${styles.likeButton}`} onClick={this.handleClick}>
+        <span>
           {isLiked ? (
-            <FontAwesomeIcon icon={fasHeart} />
+            <FontAwesomeIcon className={`${styles.red}`} icon={fasHeart} />
           ) : (
             <FontAwesomeIcon icon={farHeart} />
           )}
         </span>
         <span
-          className={`likeButton__animation${
+          className={`${
             isAnimating && isLiked
-              ? "--expand"
+              ? styles.likeButton__animation__expand
               : isAnimating && !isLiked
-              ? "--break"
-              : ""
+              ? styles.likeButton__animation__break
+              : styles.likeButton__animation
           }`}
         >
           {isLiked ? (
@@ -61,7 +63,7 @@ class LikeButton extends Component {
           )}
         </span>
         {likes !== undefined && (
-          <span className="likeButton__text">{likes}</span>
+          <span className={`${styles.likeButton__text}`}>{likes}</span>
         )}
       </div>
     );

@@ -7,25 +7,37 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
 
-export default class LikeButton extends Component {
-  state = { isAnimating: false };
+class LikeButton extends Component {
+  state = { isAnimating: false, isLiked: false };
 
-  componentDidUpdate(oldProps) {
-    if (oldProps.isLiked !== this.props.isLiked) {
-      this.setState({ isAnimating: true }, () => {
-        setTimeout(() => {
-          this.setState({ isAnimating: false });
-        }, 500);
-      });
-    }
+  static getDerivedStateFromProps(nextProps) {
+    return {
+      isLiked: nextProps.isLiked
+    };
   }
 
+  shouldComponentUpdate(nextProps) {
+    if (this.props.isLiked !== nextProps.isLiked) {
+      return true;
+    }
+    return false;
+  }
+
+  handleClick = () => {
+    this.setState({ isAnimating: true, isLiked: !this.state.isLiked }, () => {
+      setTimeout(() => {
+        this.setState({ isAnimating: false });
+      }, 500);
+    });
+    this.props.handleLike(!this.state.isLiked);
+  };
+
   render() {
-    const { likes, isLiked, handleLike } = this.props;
-    const { isAnimating } = this.state;
+    const { likes } = this.props;
+    const { isAnimating, isLiked } = this.state;
 
     return (
-      <div className="likeButton" onClick={() => handleLike(!isLiked)}>
+      <div className="likeButton" onClick={this.handleClick}>
         <span className={`${isLiked ? "red" : ""}`}>
           {isLiked ? (
             <FontAwesomeIcon icon={fasHeart} />
@@ -60,3 +72,5 @@ LikeButton.propTypes = {
   isLiked: PropTypes.bool.isRequired,
   handleLike: PropTypes.func.isRequired
 };
+
+export default LikeButton;

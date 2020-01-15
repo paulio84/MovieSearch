@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-import Footer from "../Footer";
-import SearchMovies from "../SearchMovies";
+import Footer from "../Footer/Footer";
+import SearchMovies from "../SearchMovies/SearchMovies";
 
 const App = () => {
   const [favouriteMovies, setFavouriteMovies] = useState([]);

@@ -33,8 +33,8 @@ const MovieList = ({
       </div>
     </section>
   ) : (
-    <section className="center-align">No Movies Found!</section>
-  );
+      <section className="center-align">No Movies Found!</section>
+    );
 
 MovieList.propTypes = {
   movies: PropTypes.arrayOf(

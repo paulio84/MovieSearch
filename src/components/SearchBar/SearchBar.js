@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 
-import Notification from "../Notification";
+import Notification from "../Notification/Notification";
 
 import styles from "./SearchBar.module.css";
 

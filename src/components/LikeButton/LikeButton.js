@@ -44,23 +44,23 @@ class LikeButton extends Component {
           {isLiked ? (
             <FontAwesomeIcon className={`${styles.red}`} icon={fasHeart} />
           ) : (
-            <FontAwesomeIcon icon={farHeart} />
-          )}
+              <FontAwesomeIcon icon={farHeart} />
+            )}
         </span>
         <span
           className={`${
             isAnimating && isLiked
               ? styles.likeButton__animation__expand
               : isAnimating && !isLiked
-              ? styles.likeButton__animation__break
-              : styles.likeButton__animation
-          }`}
+                ? styles.likeButton__animation__break
+                : styles.likeButton__animation
+            }`}
         >
           {isLiked ? (
             <FontAwesomeIcon icon={fasHeart} />
           ) : (
-            <FontAwesomeIcon icon={fasHeartBroken} />
-          )}
+              <FontAwesomeIcon icon={fasHeartBroken} />
+            )}
         </span>
         {likes !== undefined && (
           <span className={`${styles.likeButton__text}`}>{likes}</span>

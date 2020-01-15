@@ -1,7 +1,7 @@
 import React from "react";
 import dayjs from "dayjs";
 
-import LikeButton from "../LikeButton";
+import LikeButton from "../LikeButton/LikeButton";
 
 const MovieCard = ({
   movie,
@@ -14,7 +14,7 @@ const MovieCard = ({
     <li
       className={`col s12 m5 card horizontal valign-wrapper ${
         index % 2 !== 0 ? "offset-m2" : ""
-      }`}
+        }`}
     >
       <div className="card-image">
         {movie.poster_path ? (
@@ -24,12 +24,12 @@ const MovieCard = ({
             alt={movie.title}
           />
         ) : (
-          <img
-            className="responsive-img"
-            src={`/assets/noPhotoFound.png`}
-            alt={movie.title}
-          />
-        )}
+            <img
+              className="responsive-img"
+              src={`/assets/noPhotoFound.png`}
+              alt={movie.title}
+            />
+          )}
       </div>
       <div className="card-stacked">
         <div className="card-content">

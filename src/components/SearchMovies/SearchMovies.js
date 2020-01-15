@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import Loading from "../Loading";
-import MovieList from "../MovieList";
-import SearchBar from "../SearchBar";
+import Loading from "../Loading/Loading";
+import MovieList from "../MovieList/MovieList";
+import SearchBar from "../SearchBar/SearchBar";
 
 const SearchMovies = ({
   favouriteMovies,
@@ -42,13 +42,13 @@ const SearchMovies = ({
       {isLoading ? (
         <Loading />
       ) : (
-        <MovieList
-          movies={movies}
-          favouriteMovies={favouriteMovies}
-          onAddToFavouriteMovies={onAddToFavouriteMovies}
-          onRemoveFromFavouriteMovies={onRemoveFromFavouriteMovies}
-        />
-      )}
+          <MovieList
+            movies={movies}
+            favouriteMovies={favouriteMovies}
+            onAddToFavouriteMovies={onAddToFavouriteMovies}
+            onRemoveFromFavouriteMovies={onRemoveFromFavouriteMovies}
+          />
+        )}
     </main>
   );
 };

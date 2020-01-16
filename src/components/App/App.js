@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Footer from "../Footer/Footer";
+import Login from '../auth/Login';
 import Navbar from '../Navbar/Navbar';
+import Register from '../auth/Register';
 import SearchMovies from "../SearchMovies/SearchMovies";
 
 const App = () => {
@@ -30,18 +32,18 @@ const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <div className="container">
-        <Switch>
-          <Route path="/" render={() =>
-            <SearchMovies
-              favouriteMovies={favouriteMovies}
-              onAddToFavouriteMovies={onAddToFavouriteMovies}
-              onRemoveFromFavouriteMovies={onRemoveFromFavouriteMovies}
-            />}
-          />
-        </Switch>
-        <Footer />
-      </div>
+      <Switch>
+        <Route path="/" exact render={() =>
+          <SearchMovies
+            favouriteMovies={favouriteMovies}
+            onAddToFavouriteMovies={onAddToFavouriteMovies}
+            onRemoveFromFavouriteMovies={onRemoveFromFavouriteMovies}
+          />}
+        />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+      </Switch>
+      <Footer />
     </BrowserRouter>
   );
 };

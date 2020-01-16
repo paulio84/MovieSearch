@@ -37,7 +37,7 @@ const SearchMovies = ({
   };
 
   return (
-    <main>
+    <main className="container">
       <SearchBar onSearchSubmit={onSearchSubmit} />
       {isLoading ? (
         <Loading />

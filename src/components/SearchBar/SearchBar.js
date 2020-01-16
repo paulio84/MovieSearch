@@ -27,6 +27,7 @@ const SearchBar = ({ onSearchSubmit }) => {
   return (
     <form onSubmit={onFormSubmit}>
       <div className={`${styles.searchBar} input-field`}>
+        <label className="grey-text text-lighten-1" htmlFor="searchbar">Enter a movie title</label>
         <input
           id="searchbar"
           type="text"
@@ -35,7 +36,6 @@ const SearchBar = ({ onSearchSubmit }) => {
             setTerm(event.target.value);
             setEmptySearchTerm(false);
           }}
-          placeholder="Enter a movie title"
           autoComplete="off"
         />
         <span onClick={onFormSubmit} className="light-blue-text text-darken-4">
